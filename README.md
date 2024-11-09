@@ -7,12 +7,7 @@
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Running the Project](#running-the-project)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
+- [Prerequisites](#prerequisites)
 
 ## Features
 
@@ -25,10 +20,10 @@
 ## Tech Stack
 
 - **Frontend**: Next.js (React.js)
-- **Backend**: Node.js with Express
-- **Database**: MongoDB
+- **Backend**: Next.js
+- **Database**: PostgreSQL
 - **AI Detection**: Python (Flask API)
-- **Authentication**: Firebase or Auth0
+- **Authentication**: Next Auth with Google OAuth
 - **Payment**: Stripe API
 
 ## Getting Started
@@ -37,13 +32,6 @@
 
 - Node.js (v14 or later)
 - Python (v3.7 or later)
-- MongoDB Atlas or local MongoDB setup
+- neon.tech free tier account or local PostgreSQL installation
 - Stripe account for payment processing
 - Git
-
-### Installation
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/yourusername/GeniGPT.git
-   cd GeniGPT
