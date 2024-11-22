@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth/next'
-import authOptions from '@/config/authOptions'
+import authOpts from '@/config/authOpts'
 export {dynamic} from '@/config/dynamic'
-const NextAuthHandler = NextAuth(authOptions)
+const NextAuthHandler = NextAuth(authOpts)
 export {
   /**
    * @name    GET
