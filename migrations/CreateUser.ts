@@ -1,12 +1,17 @@
-import migrateId from '@/utils/migrateId'
+import {
+  DataTypes,
+  QueryInterface,
+  Sequelize
+} from 'sequelize'
+import createId from '@/utils/createId'
 export const up = async (
-  queryInterface,
-  sequelize
+  queryInterface: QueryInterface,
+  sequelize: Sequelize
 ) => {
   await queryInterface.createTable('users', {
-    ...migrateId(sequelize),
+    ...createId(),
     email: {
-      type: sequelize.STRING,
+      type: DataTypes.STRING,
       unique: [
         true,
         'A user with this email address already exists.'
@@ -17,14 +22,14 @@ export const up = async (
       }
     },
     username: {
-      type: sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: false
     },
     image: {
-      type: sequelize.STRING
+      type: DataTypes.STRING
     },
     role: {
-      type: sequelize.ENUM(
+      type: DataTypes.ENUM(
         'admin',
         'root',
         'user'
@@ -33,7 +38,7 @@ export const up = async (
       defaultValue: 'user'
     },
     tier: {
-      type: sequelize.ENUM(
+      type: DataTypes.ENUM(
         'basic',
         'free',
         'prem'
@@ -42,15 +47,15 @@ export const up = async (
       defaultValue: 'free'
     },
     createdAt: {
-      type: sequelize.DATE
+      type: DataTypes.DATE
     },
     updatedAt: {
-      type: sequelize.DATE
+      type: DataTypes.DATE
     }
   })
   await queryInterface.addConstraint(
     'users', {
-      type: 'unique',
+      type: 'check',
       fields: [
         'role'
       ],
@@ -94,6 +99,6 @@ export const up = async (
   )
 }
 export const down = async (
-  queryInterface,
-  sequelize
+  queryInterface: QueryInterface,
+  sequelize: Sequelize
 ) => await queryInterface.dropTable('users')
