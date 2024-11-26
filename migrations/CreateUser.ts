@@ -8,51 +8,55 @@ export const up = async (
   queryInterface: QueryInterface,
   sequelize: Sequelize
 ) => {
-  await queryInterface.createTable('users', {
-    ...createId(),
-    email: {
-      type: DataTypes.STRING,
-      unique: [
-        true,
-        'A user with this email address already exists.'
-      ],
-      allowNull: false,
-      validate: {
-        isEmail: true
+  await queryInterface.createTable(
+    'users', {
+      ...createId(),
+      email: {
+        type: DataTypes.STRING,
+        unique: [
+          true,
+          'A user with this email address already exists.'
+        ],
+        allowNull: false,
+        validate: {
+          isEmail: true
+        }
+      },
+      username: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      image: {
+        type: DataTypes.STRING
+      },
+      role: {
+        type: DataTypes.ENUM(
+          'admin',
+          'root',
+          'user'
+        ),
+        allowNull: false,
+        defaultValue: 'user'
+      },
+      tier: {
+        type: DataTypes.ENUM(
+          'basic',
+          'free',
+          'prem'
+        ),
+        allowNull: false,
+        defaultValue: 'free'
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: false
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: false
       }
-    },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    image: {
-      type: DataTypes.STRING
-    },
-    role: {
-      type: DataTypes.ENUM(
-        'admin',
-        'root',
-        'user'
-      ),
-      allowNull: false,
-      defaultValue: 'user'
-    },
-    tier: {
-      type: DataTypes.ENUM(
-        'basic',
-        'free',
-        'prem'
-      ),
-      allowNull: false,
-      defaultValue: 'free'
-    },
-    createdAt: {
-      type: DataTypes.DATE
-    },
-    updatedAt: {
-      type: DataTypes.DATE
     }
-  })
+  )
   await queryInterface.addConstraint(
     'users', {
       type: 'check',
