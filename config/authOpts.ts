@@ -3,11 +3,8 @@ import {AuthOptions} from 'next-auth'
 import connectSequelize from '@/utils/connectSequelize'
 import userSqlModel from '@/models/userSqlModel'
 import SignInParams from '@/interfaces/SignInParams'
-import GoogleSignInParams from '@/interfaces/GoogleSignInParams'
 import SessionParams from '@/interfaces/SessionParams'
 import SessionWithUserId from '@/interfaces/SessionWithUserId'
-import AdapterUserWithId from '@/interfaces/AdapterUserWithId'
-import UserSqlRecord from '@/interfaces/UserSqlRecord'
 const authOptions: AuthOptions = {
   providers: [
     Google<GoogleProfile>({
@@ -24,9 +21,9 @@ const authOptions: AuthOptions = {
   ],
   callbacks: {
     async signIn(params: SignInParams): Promise<boolean> {
-      const {profile}: GoogleSignInParams = params as GoogleSignInParams
+      const {profile}: any = params
       await connectSequelize()
-      const user: UserSqlRecord | null = await userSqlModel.findOne({
+      const user: any = await userSqlModel.findOne({
         where: {
           email: profile.email
         }
@@ -43,23 +40,25 @@ const authOptions: AuthOptions = {
             where: {
               role: 'root'
             }
-          }) ? 'user' : 'root'
+          }) ? 'user' : 'root',
+          tier: 'free'
         })
       }
       return true
     },
     async session(params: SessionParams): Promise<SessionWithUserId> {
       const {session} = params
-      const sessionUser: AdapterUserWithId = session.user as AdapterUserWithId
+      const sessionUser: any = session.user
+      const registeredUser: any = await userSqlModel.findOne({
+        where: {
+          email: sessionUser.email
+        }
+      })
       return {
         ...session,
         user: {
           ...sessionUser,
-          id: (await userSqlModel.findOne({
-            where: {
-              email: sessionUser.email
-            }
-          }))?.id ?? ''
+          id: registeredUser?.id ?? ''
         }
       }
     }
