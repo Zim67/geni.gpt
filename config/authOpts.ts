@@ -48,16 +48,16 @@ const authOptions: AuthOptions = {
     },
     async session(params: SessionParams): Promise<SessionWithUserId> {
       const {session} = params
-      const sessionUser: any = session.user
+      const {user}: any = session
       const registeredUser: any = await userSqlModel.findOne({
         where: {
-          email: sessionUser.email
+          email: user.email
         }
       })
       return {
         ...session,
         user: {
-          ...sessionUser,
+          ...user,
           id: registeredUser?.id ?? ''
         }
       }
