@@ -7,7 +7,7 @@ import createId from '@/utils/createId'
 export const up = async (
   queryInterface: QueryInterface,
   sequelize: Sequelize
-) => {
+): Promise<void> => {
   await queryInterface.createTable(
     'users', {
       ...createId(),
@@ -105,4 +105,4 @@ export const up = async (
 export const down = async (
   queryInterface: QueryInterface,
   sequelize: Sequelize
-) => await queryInterface.dropTable('users')
+): Promise<void> => await queryInterface.dropTable('users')

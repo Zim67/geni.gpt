@@ -20,7 +20,7 @@ const RootLayout: FunctionComponent<DestructuredReactNode> = ({children}): React
     <GlobalContextProvider>
       <html lang='en'>
         <body className={inter.className}>
-            <Header/>
+          <Header/>
           <main>
             {children}
           </main>
