@@ -17,10 +17,7 @@ export const up = async (
           true,
           'A user with this email address already exists.'
         ],
-        allowNull: false,
-        validate: {
-          isEmail: true
-        }
+        allowNull: false
       },
       username: {
         type: DataTypes.STRING,

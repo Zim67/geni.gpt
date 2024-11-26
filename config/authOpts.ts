@@ -5,7 +5,7 @@ import userSqlModel from '@/models/userSqlModel'
 import SignInParams from '@/interfaces/SignInParams'
 import SessionParams from '@/interfaces/SessionParams'
 import SessionWithUserId from '@/interfaces/SessionWithUserId'
-const authOptions: AuthOptions = {
+const authOpts: AuthOptions = {
   providers: [
     Google<GoogleProfile>({
       clientId: process.env.GOOGLE_CLIENT_ID ?? '',
@@ -64,4 +64,4 @@ const authOptions: AuthOptions = {
     }
   }
 }
-export default authOptions
+export default authOpts

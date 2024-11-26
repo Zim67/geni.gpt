@@ -15,10 +15,7 @@ const userSqlModel: ModelStatic<Model<UserSqlRecord>> = sequelize.models.User ??
         true,
         'A user with this email address already exists.'
       ],
-      allowNull: false,
-      validate: {
-        isEmail: true
-      }
+      allowNull: false
     },
     username: {
       type: DataTypes.STRING,
