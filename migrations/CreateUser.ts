@@ -28,7 +28,8 @@ export const up = async (queryInterface: QueryInterface): Promise<void> => await
         'user'
       ),
       allowNull: false,
-      defaultValue: 'user'
+      defaultValue: 'user',
+      unique: 'root'
     },
     tier: {
       type: DataTypes.ENUM(

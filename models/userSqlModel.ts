@@ -32,7 +32,8 @@ const userSqlModel: ModelStatic<Model<UserSqlRecord>> = sequelize.models.User ??
         'user'
       ),
       allowNull: false,
-      defaultValue: 'user'
+      defaultValue: 'user',
+      unique: 'root'
     },
     tier: {
       type: DataTypes.ENUM(
