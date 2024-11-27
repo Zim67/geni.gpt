@@ -46,7 +46,12 @@ const userSqlModel: ModelStatic<Model<UserSqlRecord>> = sequelize.models.User ??
     }
   }, {
     tableName: 'users',
-    timestamps: true
+    timestamps: true,
+    hooks: {
+      beforeDestroy: async (user: Model<UserSqlRecord>): Promise<void> => {
+        if (user.get('role') === 'root') throw new Error('The root user shouldn\'t be deleted.')
+      }
+    }
   }
 )
 export default userSqlModel
