@@ -45,22 +45,7 @@ const userSqlModel: ModelStatic<Model<UserSqlRecord>> = sequelize.models.User ??
     }
   }, {
     tableName: 'users',
-    timestamps: true,
-    hooks: {
-      async beforeCreate(user: Model<UserSqlRecord>): Promise<void> {
-        if (user.get('role') === 'root') {
-          if (await userSqlModel.findOne({
-            where: {
-              role: 'root'
-            }
-          })) {
-            throw new Error(
-              'There can be only one root user.'
-            )
-          }
-        }
-      }
-    }
+    timestamps: true
   }
 )
 export default userSqlModel
