@@ -56,18 +56,6 @@ export const up = async (queryInterface: QueryInterface): Promise<void> => {
       fields: [
         'role'
       ],
-      where : {
-        role: 'root'
-      },
-      name: 'unique_root_constraint'
-    }
-  )
-  await queryInterface.addConstraint(
-    'users', {
-      type: 'check',
-      fields: [
-        'role'
-      ],
       where: {
         role: [
           'admin',
