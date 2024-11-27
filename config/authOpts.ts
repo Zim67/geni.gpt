@@ -20,7 +20,7 @@ const authOpts: AuthOptions = {
     })
   ],
   callbacks: {
-    async signIn(params: SignInParams): Promise<boolean> {
+    signIn: async (params: SignInParams): Promise<boolean> => {
       const {profile}: any = params
       await connectSequelize()
       const user: any = await userSqlModel.findOne({
@@ -46,7 +46,7 @@ const authOpts: AuthOptions = {
       }
       return true
     },
-    async session(params: SessionParams): Promise<SessionWithUserId> {
+    session: async (params: SessionParams): Promise<SessionWithUserId> => {
       const {session} = params
       const {user}: any = session
       const registeredUser: any = await userSqlModel.findOne({
