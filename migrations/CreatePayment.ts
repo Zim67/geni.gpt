@@ -1,9 +1,11 @@
 import {
   DataTypes,
+  Model,
   QueryInterface
 } from 'sequelize'
 import createId from '@/utils/createId'
-export const up: Function = async (queryInterface: QueryInterface): Promise<void> => await queryInterface.createTable(
+import PaymentSqlRecord from '@/interfaces/PaymentSqlRecord'
+export const up: Function = async (queryInterface: QueryInterface): Promise<void> => await queryInterface.createTable<Model<PaymentSqlRecord>>(
   'payments', {
     ...createId(),
     user: {
