@@ -1,10 +1,13 @@
 import {
   DataTypes,
-  QueryInterface
+  Model,
+  ModelStatic
 } from 'sequelize'
 import createId from '@/utils/createId'
-export const up = async (queryInterface: QueryInterface): Promise<void> => await queryInterface.createTable(
-  'users', {
+import sequelize from '@/config/sequelize'
+import UserSqlRecord from '@/interfaces/UserSqlRecord'
+const userSqlModel: ModelStatic<Model<UserSqlRecord>> = sequelize.models.User ?? sequelize.define<Model<UserSqlRecord>>(
+  'User', {
     ...createId(),
     email: {
       type: DataTypes.STRING,
@@ -19,7 +22,8 @@ export const up = async (queryInterface: QueryInterface): Promise<void> => await
       allowNull: false
     },
     image: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: true
     },
     role: {
       type: DataTypes.ENUM(
@@ -39,15 +43,15 @@ export const up = async (queryInterface: QueryInterface): Promise<void> => await
       ),
       allowNull: false,
       defaultValue: 'free'
-    },
-    createdAt: {
-      type: DataTypes.DATE,
-      allowNull: false
-    },
-    updatedAt: {
-      type: DataTypes.DATE,
-      allowNull: false
+    }
+  }, {
+    tableName: 'users',
+    timestamps: true,
+    hooks: {
+      beforeDestroy: async (user: Model<UserSqlRecord>): Promise<void> => {
+        if (user.get('role') === 'root') throw new Error('The root user shouldn\'t be deleted.')
+      }
     }
   }
 )
-export const down = async (queryInterface: QueryInterface): Promise<void> => await queryInterface.dropTable('users')
+export default userSqlModel

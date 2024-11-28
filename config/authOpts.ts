@@ -1,13 +1,11 @@
 import Google, {GoogleProfile} from 'next-auth/providers/google'
 import {AuthOptions} from 'next-auth'
 import connectSequelize from '@/utils/connectSequelize'
-import UserModel from '@/models/UserModel'
+import userSqlModel from '@/models/userSqlModel'
 import SignInParams from '@/interfaces/SignInParams'
-import GoogleSignInParams from '@/interfaces/GoogleSignInParams'
 import SessionParams from '@/interfaces/SessionParams'
 import SessionWithUserId from '@/interfaces/SessionWithUserId'
-import AdapterUserWithId from '@/interfaces/AdapterUserWithId'
-const authOptions: AuthOptions = {
+const authOpts: AuthOptions = {
   providers: [
     Google<GoogleProfile>({
       clientId: process.env.GOOGLE_CLIENT_ID ?? '',
@@ -22,10 +20,10 @@ const authOptions: AuthOptions = {
     })
   ],
   callbacks: {
-    async signIn(params: SignInParams): Promise<boolean> {
-      const {profile}: GoogleSignInParams = params as GoogleSignInParams
+    signIn: async (params: SignInParams): Promise<boolean> => {
+      const {profile}: any = params
       await connectSequelize()
-      const user: UserModel | null = await UserModel.findOne({
+      const user: any = await userSqlModel.findOne({
         where: {
           email: profile.email
         }
@@ -34,11 +32,11 @@ const authOptions: AuthOptions = {
         user.image = profile.picture
         await user.save()
       } else {
-        await UserModel.create({
+        await userSqlModel.create({
           email: profile.email,
           username: profile.name,
           image: profile.picture,
-          role: await UserModel.findOne({
+          role: await userSqlModel.findOne({
             where: {
               role: 'root'
             }
@@ -48,21 +46,22 @@ const authOptions: AuthOptions = {
       }
       return true
     },
-    async session(params: SessionParams): Promise<SessionWithUserId> {
+    session: async (params: SessionParams): Promise<SessionWithUserId> => {
       const {session} = params
-      const sessionUser: AdapterUserWithId = session.user as AdapterUserWithId
+      const {user}: any = session
+      const registeredUser: any = await userSqlModel.findOne({
+        where: {
+          email: user.email
+        }
+      })
       return {
         ...session,
         user: {
-          ...sessionUser,
-          id: (await UserModel.findOne({
-            where: {
-              email: sessionUser.email
-            }
-          }))?.id ?? ''
+          ...user,
+          id: registeredUser?.id ?? ''
         }
       }
     }
   }
 }
-export default authOptions
+export default authOpts

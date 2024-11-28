@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  geni.gpt:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: geni.gpt:latest
+    ports:
+      - "3000:3000"
