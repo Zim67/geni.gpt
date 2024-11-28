@@ -32,8 +32,7 @@ const userSqlModel: ModelStatic<Model<UserSqlRecord>> = sequelize.models.User ??
         'user'
       ),
       allowNull: false,
-      defaultValue: 'user',
-      unique: 'root'
+      defaultValue: 'user'
     },
     tier: {
       type: DataTypes.ENUM(
@@ -57,6 +56,13 @@ const userSqlModel: ModelStatic<Model<UserSqlRecord>> = sequelize.models.User ??
     tableName: 'users',
     timestamps: true,
     hooks: {
+      beforeCreate: async (user: Model<UserSqlRecord>): Promise<void> => {
+        if (user.get('role') === 'root') if (await userSqlModel.findOne({
+          where: {
+            role: 'root'
+          }
+        })) throw new Error('The root user already exists.')
+      },
       beforeDestroy: async (user: Model<UserSqlRecord>): Promise<void> => {
         if (user.get('role') === 'root') throw new Error('The root user shouldn\'t be deleted.')
       }
