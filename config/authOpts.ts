@@ -41,7 +41,10 @@ const authOpts: AuthOptions = {
               role: 'root'
             }
           }) ? 'user' : 'root',
-          tier: 'free'
+          tier: 'free',
+          analyses: [],
+          subscriptions: [],
+          payments: []
         })
       }
       return true
