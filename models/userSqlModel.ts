@@ -43,6 +43,15 @@ const userSqlModel: ModelStatic<Model<UserSqlRecord>> = sequelize.models.User ??
       ),
       allowNull: false,
       defaultValue: 'free'
+    },
+    analyses: {
+      type: [DataTypes.STRING]
+    },
+    subscriptions: {
+      type: [DataTypes.STRING]
+    },
+    payments: {
+      type: [DataTypes.STRING]
     }
   }, {
     tableName: 'users',
@@ -52,6 +61,21 @@ const userSqlModel: ModelStatic<Model<UserSqlRecord>> = sequelize.models.User ??
         if (user.get('role') === 'root') throw new Error('The root user shouldn\'t be deleted.')
       }
     }
+  }
+)
+userSqlModel.hasMany(
+  sequelize.models.Analysis, {
+    foreignKey: 'analyses'
+  }
+)
+userSqlModel.hasMany(
+  sequelize.models.Subscription, {
+    foreignKey: 'subscriptions'
+  }
+)
+userSqlModel.hasMany(
+  sequelize.models.Payment, {
+    foreignKey: 'payments'
   }
 )
 export default userSqlModel

@@ -5,5 +5,8 @@ interface UserSqlRecord extends SqlRecord {
   image?: string
   role: 'admin' | 'root' | 'user'
   tier: 'basic' | 'free' | 'prem'
+  analyses: string[]
+  subscriptions: string[]
+  payments: string[]
 }
 export default UserSqlRecord

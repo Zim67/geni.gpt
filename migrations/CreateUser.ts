@@ -40,6 +40,15 @@ export const up = async (queryInterface: QueryInterface): Promise<void> => await
       allowNull: false,
       defaultValue: 'free'
     },
+    analyses: {
+      type: [DataTypes.STRING]
+    },
+    subscriptions: {
+      type: [DataTypes.STRING]
+    },
+    payments: {
+      type: [DataTypes.STRING]
+    },
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false
