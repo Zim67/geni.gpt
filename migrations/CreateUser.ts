@@ -1,9 +1,11 @@
 import {
   DataTypes,
+  Model,
   QueryInterface
 } from 'sequelize'
 import createId from '@/utils/createId'
-export const up = async (queryInterface: QueryInterface): Promise<void> => await queryInterface.createTable(
+import UserSqlRecord from '@/interfaces/UserSqlRecord'
+export const up = async (queryInterface: QueryInterface): Promise<void> => await queryInterface.createTable<Model<UserSqlRecord>>(
   'users', {
     ...createId(),
     email: {
@@ -28,8 +30,7 @@ export const up = async (queryInterface: QueryInterface): Promise<void> => await
         'user'
       ),
       allowNull: false,
-      defaultValue: 'user',
-      unique: 'root'
+      defaultValue: 'user'
     },
     tier: {
       type: DataTypes.ENUM(
