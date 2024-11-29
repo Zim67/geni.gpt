@@ -56,7 +56,7 @@ export const up = async (queryInterface: QueryInterface): Promise<void> => await
     },
     updatedAt: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: true
     }
   }
 )
