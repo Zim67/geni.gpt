@@ -5,6 +5,7 @@ import {
 } from 'sequelize'
 import createId from '@/utils/createId'
 import AnalysisSqlRecord from '@/interfaces/AnalysisSqlRecord'
+import createTimeStamps from '@/utils/createTimeStamps'
 export const up: Function = async (queryInterface: QueryInterface): Promise<void> => await queryInterface.createTable<Model<AnalysisSqlRecord>>(
   'analyses', {
     ...createId(), 
@@ -24,14 +25,7 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       type: DataTypes.TEXT,
       allowNull: false
     },
-    createdAt: {
-      type: DataTypes.DATE,
-      allowNull: false
-    },
-    updatedAt: {
-      type: DataTypes.DATE,
-      allowNull: true
-    }
+    ...createTimeStamps()
   }
 )
 export const down: Function = async (queryInterface: QueryInterface): Promise<void> => await queryInterface.dropTable('analyses')
