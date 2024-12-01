@@ -1,5 +1,5 @@
 import SqlRecord from '@/interfaces/SqlRecord'
-interface SubscriptionSqlRecord extends SqlRecord {
+export default interface SubscriptionSqlRecord extends SqlRecord {
   user: string
   tier: 'basic' | 'prem'
   active: boolean
@@ -7,4 +7,3 @@ interface SubscriptionSqlRecord extends SqlRecord {
   end: string
   payments: string[]
 }
-export default SubscriptionSqlRecord

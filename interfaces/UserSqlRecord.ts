@@ -1,5 +1,5 @@
 import SqlRecord from '@/interfaces/SqlRecord'
-interface UserSqlRecord extends SqlRecord {
+export default interface UserSqlRecord extends SqlRecord {
   email: string
   username: string
   image?: string
@@ -9,4 +9,3 @@ interface UserSqlRecord extends SqlRecord {
   subscriptions: string[]
   payments: string[]
 }
-export default UserSqlRecord

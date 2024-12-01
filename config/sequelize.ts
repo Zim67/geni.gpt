@@ -1,10 +1,10 @@
 import {Sequelize} from 'sequelize'
 const sequelize: Sequelize = new Sequelize({
-  database: process.env.DB_NAME ?? 'geni.gpt',
-  username: process.env.DB_USER ?? 'postgres',
-  password: process.env.DB_PW ?? '',
-  host: process.env.DB_HOST ?? 'localhost',
-  port: parseInt(process.env.DB_PORT ?? '5432'),
+  database: process.env.SQL_DB_NAME ?? 'genigpt',
+  username: process.env.SQL_DB_USER ?? 'postgres',
+  password: process.env.SQL_DB_PW ?? '',
+  host: process.env.SQL_DB_HOST ?? 'localhost',
+  port: parseInt(process.env.SQL_DB_PORT ?? '5432'),
   dialect: 'postgres',
   dialectOptions: {
     ssl: {

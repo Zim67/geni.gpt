@@ -1,5 +1,4 @@
 import UserSqlRecord from '@/interfaces/UserSqlRecord'
-interface State {
+export default interface State {
   user?: UserSqlRecord
 }
-export default State
