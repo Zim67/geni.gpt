@@ -11,7 +11,11 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
     ...createId(), 
     user: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'User',
+        key: 'id'
+      }
     },
     input: {
       type: DataTypes.TEXT,

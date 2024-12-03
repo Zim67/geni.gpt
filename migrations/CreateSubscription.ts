@@ -11,7 +11,11 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
     ...createId(),
     user: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'User',
+        key: 'id'
+      }
     },
     tier: {
       type: DataTypes.ENUM(
@@ -36,7 +40,11 @@ export const up: Function = async (queryInterface: QueryInterface): Promise<void
       allowNull: false
     },
     payments: {
-      type: [DataTypes.STRING]
+      type: [DataTypes.STRING],
+      references: {
+        model: 'Payment',
+        key: 'id'
+      }
     },
     ...createTimeStamps()
   }

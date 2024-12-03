@@ -44,13 +44,25 @@ const userSqlModel: ModelStatic<Model<UserSqlRecord>> = sequelize.models.User ??
       defaultValue: 'free'
     },
     analyses: {
-      type: [DataTypes.STRING]
+      type: [DataTypes.STRING],
+      references: {
+        model: 'Analysis',
+        key: 'id'
+      }
     },
     subscriptions: {
-      type: [DataTypes.STRING]
+      type: [DataTypes.STRING],
+      references: {
+        model: 'Subscription',
+        key: 'id'
+      }
     },
     payments: {
-      type: [DataTypes.STRING]
+      type: [DataTypes.STRING],
+      references: {
+        model: 'Payment',
+        key: 'id'
+      }
     }
   }, {
     tableName: 'users',

@@ -11,11 +11,19 @@ const paymentSqlModel: ModelStatic<Model<PaymentSqlRecord>> = sequelize.models.P
     ...createId(),
     user: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'User',
+        key: 'id'
+      }
     },
     subscription: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'Subscription',
+        key: 'id'
+      }
     },
     total: {
       type: DataTypes.DECIMAL(10, 2),
