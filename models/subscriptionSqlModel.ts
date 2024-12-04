@@ -11,7 +11,11 @@ const subscriptionSqlModel: ModelStatic<Model<SubscriptionSqlRecord>> = sequeliz
     ...createId(),
     user: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'User',
+        key: 'id'
+      }
     },
     tier: {
       type: DataTypes.ENUM(
@@ -36,7 +40,11 @@ const subscriptionSqlModel: ModelStatic<Model<SubscriptionSqlRecord>> = sequeliz
       allowNull: false
     },
     payments: {
-      type: [DataTypes.STRING]
+      type: [DataTypes.STRING],
+      references: {
+        model: 'Payment',
+        key: 'id'
+      }
     }
   }, {
     tableName: 'subscriptions',

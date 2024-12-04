@@ -11,7 +11,11 @@ const analysisSqlModel: ModelStatic<Model<AnalysisSqlRecord>> = sequelize.models
     ...createId(),
     user: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'User',
+        key: 'id'
+      }
     },
     input: {
       type: DataTypes.TEXT,

@@ -1,7 +1,8 @@
-DB_NAME = geni.gpt
-DB_USER = postgres
-DB_PW = 
-DB_HOST = localhost
-DB_PORT = 5432
+NEXTAUTH_SECRET = 
+SQL_DB_NAME = genigpt
+SQL_DB_USER = postgres
+SQL_DB_PW = 
+SQL_DB_HOST = localhost
+SQL_DB_PORT = 5432
 GOOGLE_CLIENT_ID = 
 GOOGLE_CLIENT_SECRET = 
