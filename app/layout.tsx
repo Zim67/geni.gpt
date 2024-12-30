@@ -19,7 +19,7 @@ const RootLayout: FunctionComponent<DestructuredReactNode> = ({children}): React
   <AuthProvider>
     <GlobalContextProvider>
       <html lang='en'>
-        <body className={inter.className}>
+        <body className={`${inter.className} font-sans text-black bg-white`}>
           <Header/>
           <main>
             {children}
