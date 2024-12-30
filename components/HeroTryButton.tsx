@@ -10,14 +10,14 @@ import {
   getProviders,
   LiteralUnion,
   SignInResponse,
-  signIn,
-  signOut
+  signIn
 } from 'next-auth/react'
 import {BuiltInProviderType} from 'next-auth/providers/index'
+import Link from 'next/link'
 import {FaGoogle} from 'react-icons/fa'
 import State from '@/interfaces/State'
 import {useGlobalContext} from '@/components/GlobalContextProvider'
-const SignInOutButton: FunctionComponent = (): ReactElement => {
+const HeroTryButton: FunctionComponent = (): ReactElement => {
   const {user}: State = useGlobalContext()
   const [
     providers,
@@ -36,12 +36,12 @@ const SignInOutButton: FunctionComponent = (): ReactElement => {
   return (
     <>
       {user ? (
-        <button
-          onClick={(): Promise<void> => signOut()}
-          className='block px-4 py-2 text-sm text-green-300'
+        <Link
+          href='#'
+          className='w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-4 md:text-lg md:px-10'
         >
-          Log Out
-        </button>
+          Dashboard
+        </Link>
       ) : providers && Object.values(providers).map((
         provider: ClientSafeProvider,
         index: number
@@ -49,15 +49,15 @@ const SignInOutButton: FunctionComponent = (): ReactElement => {
         <button
           key={index}
           onClick={(): Promise<SignInResponse | undefined> => signIn(provider.id)}
-          className='flex items-center text-white bg-green-300 hover:bg-teal-200 hover:text-white rounded-md px-3 py-2'
+          className='w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-4 md:text-lg md:px-10'
         >
-          <FaGoogle className='text-white mr-2'/>
+          <FaGoogle className="text-white mr-2"/>
           <span>
-            Log In or Register
+            Try it for free!
           </span>
         </button>
       ))}
     </>
   )
 }
-export default SignInOutButton
+export default HeroTryButton
