@@ -51,7 +51,7 @@ const HeroTryButton: FunctionComponent = (): ReactElement => {
           onClick={(): Promise<SignInResponse | undefined> => signIn(provider.id)}
           className='w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-4 md:text-lg md:px-10'
         >
-          <FaGoogle className="text-white mr-2"/>
+          <FaGoogle className='text-white mr-2'/>
           <span>
             Try it for free!
           </span>
