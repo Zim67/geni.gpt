@@ -2,8 +2,8 @@ import {
   FunctionComponent,
   ReactElement
 } from 'react'
-import FeatureCardProps from '@/interfaces/FeatureCardProps'
-const FeatureCard: FunctionComponent<FeatureCardProps> = ({
+import FeatureProps from '@/interfaces/FeatureProps'
+const FeatureCard: FunctionComponent<FeatureProps> = ({
   title,
   desc,
   svg
