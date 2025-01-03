@@ -9,7 +9,7 @@ const Navigation: FunctionComponent = (): ReactElement => (
     <div className='flex items-center'>
       <Link
         href='#'
-        className='font-bold text-xl mr-6'
+        className='text-white font-bold text-xl mr-6'
       >
         <span className='text-teal-200'>
           Geni

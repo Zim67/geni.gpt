@@ -10,7 +10,7 @@ const FeatureCard: FunctionComponent<FeatureProps> = ({
 }): ReactElement => (
   <div className='relative'>
     <dt>
-      <div className='absolute flex items-center justify-center h-12 w-12 rounded-md bg-green-500'>
+      <div className='absolute flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white'>
         <svg
           className='h-6 w-6'
           xmlns='http://www.w3.org/2000/svg'
