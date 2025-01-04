@@ -7,6 +7,9 @@ import Link from 'next/link'
 export const metadata: Metadata = {}
 const e404page: FunctionComponent = (): ReactElement => (
   <section>
+    <h1>
+      Error 404
+    </h1>
     <p>
       Page Not Found
     </p>

@@ -17,7 +17,8 @@ import Link from 'next/link'
 import {FaGoogle} from 'react-icons/fa'
 import State from '@/interfaces/State'
 import {useGlobalContext} from '@/components/GlobalContextProvider'
-const HeroTryButton: FunctionComponent = (): ReactElement => {
+import ButtonProps from '@/interfaces/ButtonProps'
+const RatePlanRegisterButton: FunctionComponent<ButtonProps> = ({message}): ReactElement => {
   const {user}: State = useGlobalContext()
   const [
     providers,
@@ -38,7 +39,7 @@ const HeroTryButton: FunctionComponent = (): ReactElement => {
       {user ? (
         <Link
           href='#'
-          className='w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-4 md:text-lg md:px-10'
+          className='mt-8 block w-full bg-emerald-800 border border-emerald-700 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-emerald-900'
         >
           Dashboard
         </Link>
@@ -49,15 +50,15 @@ const HeroTryButton: FunctionComponent = (): ReactElement => {
         <button
           key={index}
           onClick={(): Promise<SignInResponse | undefined> => signIn(provider.id)}
-          className='w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-4 md:text-lg md:px-10'
+          className='mt-8 block w-full bg-emerald-800 border border-emerald-700 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-emerald-900'
         >
           <FaGoogle className='text-white mr-2'/>
           <span>
-            Try it for free!
+            {message}
           </span>
         </button>
       ))}
     </>
   )
 }
-export default HeroTryButton
+export default RatePlanRegisterButton
