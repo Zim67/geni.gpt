@@ -9,18 +9,19 @@ import {
   FaTiktok
 } from 'react-icons/fa'
 import {FaThreads} from 'react-icons/fa6'
+import MailingListSubscribeForm from '@/components/MailingListSubscribeForm'
 const Footer: FunctionComponent = (): ReactElement => (
   <footer className='bg-gray-900 text-white py-8'>
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
         <div>
-          <h3 className="text-lg font-semibold mb-4">
+          <h3 className='text-lg font-semibold mb-4'>
             GeniGPT
           </h3>
-          <p className="text-gray-400">
+          <p className='text-gray-400'>
             Unleash your creativity with AI-powered content enhancements.
           </p>
-          <div className="mt-4">
+          <div className='mt-4'>
             <Link
               href='#'
               className='text-teal-200 hover:text-green-300 mr-4'
@@ -48,10 +49,10 @@ const Footer: FunctionComponent = (): ReactElement => (
           </div>
         </div>
         <div>
-          <h3 className="text-lg font-semibold mb-4">
+          <h3 className='text-lg font-semibold mb-4'>
             Resources
           </h3>
-          <ul className="space-y-2">
+          <ul className='space-y-2'>
             <li>
               <Link
                 href='#'
@@ -87,10 +88,10 @@ const Footer: FunctionComponent = (): ReactElement => (
           </ul>
         </div>
         <div>
-          <h3 className="text-lg font-semibold mb-4">
+          <h3 className='text-lg font-semibold mb-4'>
             Company
           </h3>
-          <ul className="space-y-2">
+          <ul className='space-y-2'>
             <li>
               <Link
                 href='#'
@@ -126,31 +127,17 @@ const Footer: FunctionComponent = (): ReactElement => (
           </ul>
         </div>
         <div>
-          <h3 className="text-lg font-semibold mb-4">
+          <h3 className='text-lg font-semibold mb-4'>
             Subscribe to our Mailing List
           </h3>
-          <p className="text-gray-400 mb-4">
+          <p className='text-gray-400 mb-4'>
             Receive our latest news and updates
           </p>
-          <form action="">
-            <div className="flex">
-              <input
-                type="email"
-                placeholder='Email address'
-                className="bg-gray-800 text-white py-2 px-4 rounded-l-md focus:outline-none focus:ring-2 focus:ring-teal-200"
-              />
-              <button
-                type='submit'
-                className="bg-teal-200 hover:bg-green-300 text-white py-2 px-4 rounded-r-md transition-colors duration-300"
-              >
-                Subscribe
-              </button>
-            </div>
-          </form>
+          <MailingListSubscribeForm/>
         </div>
       </div>
-      <div className="mt-8 border-t border-gray-700 pt-8">
-        <p className="text-gray-400 text-sm">
+      <div className='mt-8 border-t border-gray-700 pt-8'>
+        <p className='text-gray-400 text-sm'>
           &copy; 2025 GeniGPT. All rights reserved.
         </p>
       </div>
