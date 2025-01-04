@@ -3,9 +3,7 @@ import {
   FunctionComponent,
   ReactElement
 } from 'react'
-import {Metadata} from 'next'
 import ErrorPageProps from '@/interfaces/ErrorPageProps'
-export const metadata: Metadata = {}
 const ErrorPage: FunctionComponent<ErrorPageProps> = ({
   error,
   reset
