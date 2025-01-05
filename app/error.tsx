@@ -9,9 +9,12 @@ const ErrorPage: FunctionComponent<ErrorPageProps> = ({
   reset
 }): ReactElement => (
   <section>
-    <h2>
+    <h1>
+      500: Internal Server Error
+    </h1>
+    <p>
       {error.message}
-    </h2>
+    </p>
     <button onClick={(): void => reset()}>
       Retry
     </button>

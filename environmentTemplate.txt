@@ -1,4 +1,4 @@
-NEXTAUTH_SECRET = 
+NEXT_AUTH_SECRET = 
 SQL_DB_NAME = genigpt
 SQL_DB_USER = postgres
 SQL_DB_PW = 
