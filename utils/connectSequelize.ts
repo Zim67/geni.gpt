@@ -1,4 +1,4 @@
-import sequelize from '@/config/sequelize.js'
+import sequelize from '@/config/sequelize'
 const connectSequelize: Function = async (): Promise<void> => {
   let connected: boolean = false
   if (!connected) try {

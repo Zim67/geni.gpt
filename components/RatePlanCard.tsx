@@ -19,16 +19,16 @@ const RatePlanCard: FunctionComponent<FeatureProps> = ({
         <p className='mt-4 text-sm text-gray-500'>
           {desc}
         </p>
-        {rate && rate > 0 && (
+        {rate ? rate > 0 && (
           <p className='mt-8'>
             <span className='text-4xl font-extrabold text-gray-900'>
               ${rate}
             </span>
             <span className='text-base font-medium text-gray-500'>
-              monthly
+              /month
             </span>
           </p>
-        )}
+        ) : null}
         <RatePlanRegisterButton message={rate ? rate > 0 ? 'Start Trial' : 'Start for Free' : 'Contact Sales'}/>
     </div>
     <div className='pt-6 pb-8 px-6'>

@@ -6,7 +6,8 @@ import {
 import {
   FaInstagram,
   FaLinkedin,
-  FaTiktok
+  FaTiktok,
+  FaYoutube
 } from 'react-icons/fa'
 import {FaThreads} from 'react-icons/fa6'
 import MailingListSubscribeForm from '@/components/MailingListSubscribeForm'
@@ -21,32 +22,33 @@ const Footer: FunctionComponent = (): ReactElement => (
           <p className='text-gray-400'>
             Unleash your creativity with AI-powered content enhancements.
           </p>
-          <div className='mt-4'>
-            <Link
-              href='#'
-              className='text-teal-200 hover:text-green-300 mr-4'
-            >
-              <FaInstagram/>
-            </Link>
-            <Link
-              href='#'
-              className='text-teal-200 hover:text-green-300 mr-4'
-            >
-              <FaThreads/>
-            </Link>
-            <Link
-              href='#'
-              className='text-teal-200 hover:text-green-300 mr-4'
-            >
-              <FaTiktok/>
-            </Link>
-            <Link
-              href='#'
-              className='text-teal-200 hover:text-green-300 mr-4'
-            >
-              <FaLinkedin/>
-            </Link>
-          </div>
+          <ul className='mt-4 flex justify-start space-x-2'>
+            <li>
+              <Link href='#'>
+                <FaInstagram/>
+              </Link>
+            </li>
+            <li>
+              <Link href='#'>
+                <FaThreads/>
+              </Link>
+            </li>
+            <li>
+              <Link href='#'>
+                <FaYoutube/>
+              </Link>
+            </li>
+            <li>
+              <Link href='#'>
+                <FaTiktok/>
+              </Link>
+            </li>
+            <li>
+              <Link href='#'>
+                <FaLinkedin/>
+              </Link>
+            </li>
+          </ul>
         </div>
         <div>
           <h3 className='text-lg font-semibold mb-4'>
