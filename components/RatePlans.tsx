@@ -14,7 +14,7 @@ const RatePlans: FunctionComponent = (): ReactElement => (
           Choose a plan that fits your needs and start enahncing your content today!
         </p>
       </div>
-      <div className='mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid-cols-4 sm:gap-6'>
+      <div className='mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-4 sm:gap-6'>
         <RatePlanCard
           title='Free'
           desc='For new users exploring the platform.'

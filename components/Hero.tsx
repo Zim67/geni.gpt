@@ -11,13 +11,13 @@ const Hero: FunctionComponent = (): ReactElement => (
         <div className='lg:w-1/2'>
           <h2 className='text-3xl font-extrabold text-gray-900 sm:text-4xl'>
             <span className='block'>
-              Unleash the astonishing power of
+              Unleash the power of
             </span>
             <span className='block text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500'>
               AI Detection
             </span>
           </h2>
-          <p className='mt-3 max-w-2xl text-lg text-gray-500'>
+          <p className='mt-3 mr-1 max-w-2xl text-lg text-gray-500'>
             GeniGPT's advanced AI detection technology helps you identify AI-generated content
             and enahance it with creative suggestions for a truly unique and polished result.
           </p>
@@ -31,10 +31,11 @@ const Hero: FunctionComponent = (): ReactElement => (
           <div className='relative'>
             <Image
               src='https://images.unsplash.com/photo-1677442136019-21780ecad995'
+              width={200}
+              height={50}
               alt='AI Neural Network Visualization'
               className='w-full h-auto rounded-2xl shadow-2xl transform transition-transform hover:scale-105'
             />
-            <div className='absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200'/>
           </div>
         </div>
       </div>

@@ -15,7 +15,7 @@ const getSessionUser: Function = async (): Promise<ServerActionResponse> => {
       const user: Model<UserSqlRecord> | null = await userSqlModel.findByPk(session.user.id)
       return user ? {
         success: true,
-        sessionUser: user.toJSON()
+        sessionUser: JSON.parse(JSON.stringify(user))
       } : {
         error: '401: Unauthorized',
         success: false

@@ -5,13 +5,13 @@ import {
 import Link from 'next/link'
 import SignInOutButton from '@/components/SignInOutButton'
 const Navigation: FunctionComponent = (): ReactElement => (
-  <nav className='py-4 px-6 flex justify-between items-center bg-green-700'>
+  <nav className='py-4 px-6 flex justify-between items-center bg-green-900'>
     <div className='flex items-center'>
       <Link
-        href='#'
-        className='text-white font-bold text-xl mr-6'
+        href='/'
+        className='font-bold text-xl mr-6'
       >
-        <span className='text-teal-200'>
+        <span className='text-green-500'>
           Geni
         </span>
         <span className='text-green-300'>
@@ -21,26 +21,32 @@ const Navigation: FunctionComponent = (): ReactElement => (
       <ul className='hidden md:flex space-x-6 text-white'>
         <li>
           <Link
-            href='#'
-            className='hover:text-green-300 transition-colors'
+            href='/'
+            className='hover:text-green-500 transition-colors'
           >
             Home
           </Link>
+        </li>
+        <li>
           <Link
             href='#'
-            className='hover:text-green-300 transition-colors'
+            className='hover:text-green-500 transition-colors'
           >
             AI Detection
           </Link>
+        </li>
+        <li>
           <Link
             href='#'
-            className='hover:text-green-300 transition-colors'
+            className='hover:text-green-500 transition-colors'
           >
             Pricing
           </Link>
+        </li>
+        <li>
           <Link
             href='#'
-            className='hover:text-green-300 transition-colors'
+            className='hover:text-green-500 transition-colors'
           >
             About
           </Link>
