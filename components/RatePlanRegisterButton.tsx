@@ -50,7 +50,7 @@ const RatePlanRegisterButton: FunctionComponent<ButtonProps> = ({message}): Reac
         <button
           key={index}
           onClick={(): Promise<SignInResponse | undefined> => signIn(provider.id)}
-          className='mt-8 block w-full bg-emerald-800 border border-emerald-700 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-emerald-900'
+          className='mt-8 flex justify-center items-center w-full bg-emerald-800 border border-emerald-700 rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-emerald-900'
         >
           <FaGoogle className='text-white mr-2'/>
           <span>

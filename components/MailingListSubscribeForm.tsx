@@ -3,7 +3,10 @@ import {
   FunctionComponent,
   ReactElement
 } from 'react'
-import {useFormStatus} from 'react-dom'
+import {
+  FormStatus,
+  useFormStatus
+} from 'react-dom'
 import {toast} from 'react-toastify'
 import ServerActionResponse from '@/interfaces/ServerActionResponse'
 import subscribeToMailingList from '@/serverActions/subscribeToMailingList'
@@ -16,7 +19,7 @@ const MailingListSubscribeForm: FunctionComponent = (): ReactElement => {
     }: ServerActionResponse = await subscribeToMailingList(form.get('email')?.valueOf().toString() ?? '')
     success ? toast.success(message) : toast.error(error)
   }
-  const pending: boolean = useFormStatus().pending
+  const {pending}: FormStatus = useFormStatus()
   return (
     <form action={handleSubscribe.bind(null)}>
       <div className='flex'>
