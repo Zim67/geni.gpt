@@ -51,14 +51,4 @@ const subscriptionSqlModel: ModelStatic<Model<SubscriptionSqlRecord>> = sequeliz
     timestamps: true
   }
 )
-subscriptionSqlModel.belongsTo(
-  sequelize.models.User, {
-    foreignKey: 'user'
-  }
-)
-subscriptionSqlModel.hasMany(
-  sequelize.models.Payment, {
-    foreignKey: 'payments'
-  }
-)
 export default subscriptionSqlModel

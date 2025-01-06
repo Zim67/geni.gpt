@@ -6,6 +6,7 @@ const sequelize: Sequelize = new Sequelize({
   host: process.env.SQL_DB_HOST ?? 'localhost',
   port: parseInt(process.env.SQL_DB_PORT ?? '5432'),
   dialect: 'postgres',
+  dialectModule: require('pg'),
   dialectOptions: {
     ssl: {
       prefer: true

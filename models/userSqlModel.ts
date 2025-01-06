@@ -81,19 +81,4 @@ const userSqlModel: ModelStatic<Model<UserSqlRecord>> = sequelize.models.User ??
     }
   }
 )
-userSqlModel.hasMany(
-  sequelize.models.Analysis, {
-    foreignKey: 'analyses'
-  }
-)
-userSqlModel.hasMany(
-  sequelize.models.Subscription, {
-    foreignKey: 'subscriptions'
-  }
-)
-userSqlModel.hasMany(
-  sequelize.models.Payment, {
-    foreignKey: 'payments'
-  }
-)
 export default userSqlModel
