@@ -1,4 +1,5 @@
 import {Sequelize} from 'sequelize'
+import pg from 'pg'
 const sequelize: Sequelize = new Sequelize({
   database: process.env.SQL_DB_NAME ?? 'genigpt',
   username: process.env.SQL_DB_USER ?? 'postgres',
@@ -6,7 +7,7 @@ const sequelize: Sequelize = new Sequelize({
   host: process.env.SQL_DB_HOST ?? 'localhost',
   port: parseInt(process.env.SQL_DB_PORT ?? '5432'),
   dialect: 'postgres',
-  dialectModule: require('pg'),
+  dialectModule: pg,
   dialectOptions: {
     ssl: {
       prefer: true
