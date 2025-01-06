@@ -13,7 +13,7 @@ const ErrorPage: FunctionComponent<ErrorPageProps> = ({
       500: Internal Server Error
     </h1>
     <p>
-      {error.message}
+      {error.toString()}
     </p>
     <button onClick={(): void => reset()}>
       Retry
