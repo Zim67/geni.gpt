@@ -25,27 +25,27 @@ const Footer: FunctionComponent = (): ReactElement => (
           <ul className='mt-4 flex justify-start space-x-2'>
             <li>
               <Link href='#'>
-                <FaInstagram/>
+                <FaLinkedin className='w-10 h-10'/>
               </Link>
             </li>
             <li>
               <Link href='#'>
-                <FaThreads/>
+                <FaInstagram className='w-10 h-10'/>
               </Link>
             </li>
             <li>
               <Link href='#'>
-                <FaYoutube/>
+                <FaThreads className='w-10 h-10'/>
               </Link>
             </li>
             <li>
               <Link href='#'>
-                <FaTiktok/>
+                <FaYoutube className='w-10 h-10'/>
               </Link>
             </li>
             <li>
               <Link href='#'>
-                <FaLinkedin/>
+                <FaTiktok className='w-10 h-10'/>
               </Link>
             </li>
           </ul>
