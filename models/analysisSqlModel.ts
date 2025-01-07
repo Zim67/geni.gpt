@@ -34,9 +34,4 @@ const analysisSqlModel: ModelStatic<Model<AnalysisSqlRecord>> = sequelize.models
     timestamps: true
   }
 )
-analysisSqlModel.belongsTo(
-  sequelize.models.User, {
-    foreignKey: 'user'
-  }
-)
 export default analysisSqlModel

@@ -29,7 +29,7 @@ const RatePlanCard: FunctionComponent<FeatureProps> = ({
             </span>
           </p>
         ) : null}
-        <RatePlanRegisterButton message={rate ? rate > 0 ? 'Start Trial' : 'Start for Free' : 'Contact Sales'}/>
+        <RatePlanRegisterButton message={rate !== undefined ? rate > 0 ? 'Start Trial' : 'Start for Free' : 'Contact Sales'}/>
     </div>
     <div className='pt-6 pb-8 px-6'>
       <ul

@@ -39,14 +39,4 @@ const paymentSqlModel: ModelStatic<Model<PaymentSqlRecord>> = sequelize.models.P
     timestamps: true
   }
 )
-paymentSqlModel.belongsTo(
-  sequelize.models.User, {
-    foreignKey: 'user'
-  }
-)
-paymentSqlModel.belongsTo(
-  sequelize.models.Subscription, {
-    foreignKey: 'subscription'
-  }
-)
 export default paymentSqlModel
