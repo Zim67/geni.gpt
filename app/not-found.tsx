@@ -13,9 +13,7 @@ const e404page: FunctionComponent = (): ReactElement => (
     <p>
       Page Not Found
     </p>
-    <Link
-      href='/'
-    >
+    <Link href='/'>
       Home
     </Link>
   </section>

@@ -5,9 +5,7 @@ import {
 import {ClipLoader} from 'react-spinners'
 import {Metadata} from 'next'
 export const metadata: Metadata = {}
-const LoadingPage: FunctionComponent<boolean> = (
-  loading
-): ReactElement => (
+const LoadingPage: FunctionComponent<boolean> = (loading): ReactElement => (
   <ClipLoader
     color='#3b82f6'
     loading={loading}

@@ -17,7 +17,7 @@ const unsubscribeFromMailingList: Function = async (email: string): Promise<Serv
   } catch (error: any) {
     return {
       success: false,
-      error: `500: Internal Server Error:\n${error.toString()}`
+      error: `500: Internal server error unsubscribing from mailing list:\n${error.toString()}`
     }
   }
 }
