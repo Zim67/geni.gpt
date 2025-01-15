@@ -13,7 +13,7 @@ const subscribeToMailingList: Function = async (email: string): Promise<ServerAc
   } catch (error: any) {
     return {
       success: false,
-      error: `500: Internal Server Error:\n${error.toString()}`
+      error: `500: Internal server error subscribing to mailing list:\n${error.toString()}`
     }
   }
 }

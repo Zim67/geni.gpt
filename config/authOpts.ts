@@ -50,7 +50,7 @@ const authOpts: AuthOptions = {
       return true
     },
     session: async (params: SessionParams): Promise<SessionWithUserId> => {
-      const {session} = params
+      const {session}: SessionParams = params
       const {user}: any = session
       const registeredUser: any = await userSqlModel.findOne({
         where: {
